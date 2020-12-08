@@ -46,6 +46,32 @@ poolPromise.then(pool=>{
         console.log("owners and pets added!");
         // get a virtual table with names of pets and their owners
         
+        return pool.query(`
+            SELECT pets.name AS pet_name, owners.name AS owner_name
+            FROM pets LEFT JOIN owners
+            ON pets.owner_id = owners.id;
+            `)
+        
+    })
+    .then(results=>{
+        console.log(results);
+        
+        return pool.query(`
+            CREATE OR REPLACE VIEW hamsters AS
+                SELECT pets.name AS pet_name, owners.name AS owner_name
+                FROM pets LEFT JOIN owners
+                ON pets.owner_id = owners.id
+                WHERE pets.type = "hamster";
+        `);
+    })
+    .then(results=>{
+       return pool.query(`
+        SELECT pet_name, owner_name FROM hamsters;
+       `);
+    })
+    .then(results=>{
+        console.log("Hamsters: ");
+        console.log(results);
     })
     .catch(error=>console.log(error));
 })
