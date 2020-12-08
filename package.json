@@ -1,0 +1,22 @@
+{
+  "name": "intro-mysql-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristenIngelman98/intro-mysql-db.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristenIngelman98/intro-mysql-db/issues"
+  },
+  "homepage": "https://github.com/kristenIngelman98/intro-mysql-db#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
