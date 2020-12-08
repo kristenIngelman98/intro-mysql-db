@@ -1,5 +1,7 @@
 const {connectionPool} = require('./connection.js');
 
+
+
 connectionPool.query(`
     DROP TABLE IF EXISTS animals;
     CREATE TABLE animals (
@@ -15,9 +17,24 @@ connectionPool.query(`
         process.exit();
       }
       else {
-        console.log("Success!");
-        console.log(results);
-        process.exit();
+        console.log("Successfully created table!");
+        // console.log(results);
+
+        connectionPool.query(`
+            INSERT INTO animals (name, type) VALUES ("fluffy", "dog");
+
+      `, (error, results)=>{
+            if(error) {
+              console.log(error);
+              process.exit();
+            }
+            else {
+              console.log("Successfully inserted a row!!");
+              console.log(results);
+              process.exit();
+          }
+
+});
     }
 
 });
