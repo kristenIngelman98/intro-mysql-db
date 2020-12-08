@@ -33,8 +33,23 @@ connectionPool.query(`
             }
             else {
               console.log("Successfully inserted a row!!");
-              console.log(results);
-              process.exit();
+            //   console.log(results);
+             connectionPool.query(`SELECT * FROM animals;
+               
+    
+          `, (error, results)=>{
+                if(error) {
+                  console.log(error);
+                  process.exit();
+                }
+                else {
+                  console.log("Successfully selected rows!!");
+                  console.log(results);
+                  process.exit();
+              }
+
+});
+              
           }
 
 });
