@@ -1,6 +1,7 @@
 const {connectionPool} = require('./connection.js');
 
 connectionPool.query(`
+    DROP TABLE IF EXISTS animals;
     CREATE TABLE animals (
       name  varchar(255)  NOT NULL,
       type  varchar(255)  DEFAULT "dog"   NOT NULL,
