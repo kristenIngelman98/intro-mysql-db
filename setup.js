@@ -21,7 +21,10 @@ connectionPool.query(`
         // console.log(results);
 
         connectionPool.query(`
-            INSERT INTO animals (name, type) VALUES ("fluffy", "dog");
+            INSERT INTO animals (name, type) VALUES 
+            ("fluffy", "dog"),
+            ("fred", "cat"),
+            ("baily", "bunny");
 
       `, (error, results)=>{
             if(error) {
