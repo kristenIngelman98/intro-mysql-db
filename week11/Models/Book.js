@@ -13,5 +13,18 @@ const bookSchema = new Schema({
 
 });
 
+// create a virual property - getter method call
+
+bookSchema.virtual('pages').get(function(){
+
+  let pagesNum = 0;
+  // this is referring to the current Schema
+  this.chapters.forEach(chapter=>{
+    pagesNum += chapter.pages;
+  });
+
+  return pagesNum;
+});
+
 // compile into a Model
 exports.Book = mongoose.model('Book', bookSchema);
