@@ -15,7 +15,21 @@ db.once("open", ()=>{
     author: "Kristen Ingelman"
   });
 
-  book1.save(); // save and store document to the db (asynchronous!)
+  book1.save(error=>{
+    // any code that relies on this document being saved should go here
+    if(error) {
+      console.log(error);
+      process.exit();
+    }
+    else {
+      // if successful, create a new chapter
+      const chapter1 = new Chapter({
+        title: "Prologue",
+        text: "Gardening is easy",
+        pages:3
+      });
+    }
+  }); // save and store document to the db (asynchronous!)
 
 
   
