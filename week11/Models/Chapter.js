@@ -13,3 +13,4 @@ const chapterSchema = new Schema({
 
 // compile into a Model
 exports.Chapter = mongoose.model('Book', chapterSchema);
+exports.chapterSchema = chapterSchema;

@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const {chapterSchema} = require("./Chapter.js");
+
 // constructor
 const Schema = mongoose.Schema;
 
