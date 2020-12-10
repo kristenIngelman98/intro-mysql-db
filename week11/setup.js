@@ -44,7 +44,7 @@ db.once("open", ()=>{
           process.exit();
 
         } else {
-          console.log(book1);
+          console.log(book1, `This book has ${book1.pages} pages`);
 
         }
       });
