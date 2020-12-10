@@ -28,6 +28,26 @@ db.once("open", ()=>{
         text: "Gardening is easy",
         pages:3
       });
+
+      const chapter2 = new Chapter({
+        title: "Chapter2",
+        text: "Gardening is fun",
+        pages:5
+      });
+
+      book1.chapters.push(chapter1);
+      book1.chapters.push(chapter2);
+
+      book1.save(error=>{
+        if(error) {
+          console.log(error);
+          process.exit();
+
+        } else {
+          console.log(book1);
+
+        }
+      });
     }
   }); // save and store document to the db (asynchronous!)
 
